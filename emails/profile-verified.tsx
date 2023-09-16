@@ -62,6 +62,16 @@ export const VercelInviteUserEmail = ({
         fontWeight={400}
         fontStyle='normal'
       />
+      <Font
+        fontFamily='DM Sans'
+        fallbackFontFamily='Verdana'
+        webFont={{
+          url: 'https://fonts.gstatic.com/s/dmsans/v14/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2',
+          format: 'woff2',
+        }}
+        fontWeight={400}
+        fontStyle='normal'
+      />
       <Tailwind
         config={{
           theme: {
@@ -70,6 +80,10 @@ export const VercelInviteUserEmail = ({
                 primary: '#6A5B40',
                 primaryLight: '#857250',
                 textPrimary: '#3B3B3B',
+              },
+              fontFamily: {
+                dmSerif: 'DM Serif Display',
+                dmSans: 'DM Sans',
               },
             },
           },
@@ -107,7 +121,7 @@ export const VercelInviteUserEmail = ({
                 </Container>
                 <Container className='py-5 px-4 rounded-b-md font-sans text-center text-textPrimary font-medium text-lg'>
                   <Text className='text-lg'>Dear [Designer's Name],</Text>
-                  <Text className='text-lg'>
+                  <Text className='text-lg font-dmSans'>
                     We are thrilled to welcome you to our vibrant social
                     commerce platform for fashion enthusiasts! Your creative
                     talents are an exciting addition to our community, and we
@@ -130,7 +144,7 @@ export const VercelInviteUserEmail = ({
                 </Container>
               </Container>
             </Section>
-            <Section className='bg-white h-[625px]'></Section>
+            <Section className='bg-white h-[635px]'></Section>
             <Footer />
           </Container>
         </Body>

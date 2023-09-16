@@ -10,6 +10,8 @@ import {
 } from '@react-email/components';
 import React from 'react';
 
+import { FC } from 'react';
+
 const baseUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : '';
@@ -33,14 +35,17 @@ const infoLinks = [
   },
   { id: 3, name: 'Contact us', href: 'https://lynktown.com/contact-us' },
 ];
-const Footer = () => {
+
+interface IFooterProps {}
+
+const Footer: FC<IFooterProps> = props => {
   return (
     <Container className='px-4 mx-auto  bg-[#f9f9f7] py-10 w-[648px]'>
       <Img src={`${baseUrl}/static/lynktownlogosm.png`} />
       <Row className='max-w-sm my-4 flex items-start mx-0 space-x-4'>
         {socialLinks.map(item => {
           return (
-            <Column>
+            <Column key={item.id}>
               <Link
                 className={`${
                   item.id === 1 ? 'mr-4' : 'mx-4'
@@ -68,7 +73,7 @@ const Footer = () => {
         <Row className='max-w-sm my-4 flex items-start mx-0 space-x-4'>
           {infoLinks.map(item => {
             return (
-              <Column>
+              <Column key={item.id}>
                 <Link
                   className={`${
                     item.id === 1 ? 'mr-4' : 'mx-4'
