@@ -6,6 +6,7 @@ import {
   Heading,
   Html,
   Img,
+  Link,
   Preview,
   Row,
   Section,
@@ -15,7 +16,7 @@ import {
 import * as React from 'react';
 import Footer from './components/Footer';
 
-interface ProfileVerifiedProps {
+interface CustomerSubscriptionProps {
   username?: string;
 }
 
@@ -23,9 +24,53 @@ const baseUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : '';
 
-export const ProfileVerified = ({
-  username = `[Designer's Name]`,
-}: ProfileVerifiedProps) => {
+const content = [
+  {
+    id: 1,
+    text: `I hope this message finds you well. We're thrilled to have you as a new subscriber to our newsletter! Thank you for choosing to stay connected with us and for showing interest in LynkTown.`,
+  },
+  {
+    id: 2,
+    text: `Our newsletter is your gateway to a world of valuable insights, updates, and exclusive offers. Here's what you can expect from us:`,
+  },
+  {
+    id: 3,
+    heading: '1. Industry Trend',
+    text: `Stay ahead of the curve with the latest trends and developments in LynkTown.`,
+  },
+  {
+    id: 4,
+    heading: '2. Exclusive Content',
+    text: `Get access to articles, blog posts, and resources available only to our subscribers.`,
+  },
+  {
+    id: 5,
+    heading: '3. Product/Service Updates',
+    text: `Be the first to know about new product launches, updates, and special promotions.`,
+  },
+  {
+    id: 6,
+    heading: '4. Helpful Tips',
+    text: `Discover tips and tricks that can make your fashion journey even more rewarding.`,
+  },
+  {
+    id: 7,
+    heading: '5. Community',
+    text: `Join a community of like-minded individuals who share your passion for designer products.`,
+  },
+  {
+    id: 8,
+    text: `If you ever have questions, feedback, or specific topics you'd like us to cover in our newsletter, please feel free to reach out. We're here to provide you with content that's tailored to your interests and needs.`,
+  },
+  {
+    id: 9,
+    text: `Once again, thank you for subscribing to our newsletter. We look forward to delivering valuable content to your inbox and keeping you informed and inspired.`,
+  },
+];
+
+export const CustomerSubscription = ({
+  username = `[Customer's Name]`,
+}: CustomerSubscriptionProps) => {
   return (
     <Html>
       <Head />
@@ -99,35 +144,35 @@ export const ProfileVerified = ({
                     }}
                     className='text-white m-0 mt-1 text-4xl font-semibold'
                   >
-                    Profile verified
+                    You have successfully <br /> subcribed to LynkTown
                   </Heading>
                 </Container>
-                <Container className='py-5 px-4 rounded-b-md font-sans text-textPrimary font-medium  text-lg'>
+                <Container className='py-5 px-4 rounded-b-md font-sans text-textPrimary '>
                   <Text className='text-lg font-bold'>Dear {username},</Text>
-                  <Text className='text-base  '>
-                    We are thrilled to welcome you to our vibrant social
-                    commerce platform for fashion enthusiasts! Your creative
-                    talents are an exciting addition to our community, and we
-                    can't wait to see your designs shine.
-                  </Text>
+                  {content.map(item => {
+                    const { id, text, heading } = item;
+                    return (
+                      <Text className='text-base  '>
+                        {heading && (
+                          <Text className='font-medium   text-base  inline'>
+                            {heading}:&nbsp;
+                          </Text>
+                        )}{' '}
+                        {text}
+                      </Text>
+                    );
+                  })}
+
                   <Text className='text-base '>
-                    We believe that your unique perspective as a fashion
-                    designer will inspire and captivate our audience. Thank you
-                    for choosing us as your platform to share your creativity.
-                  </Text>
-                  <Text className='text-base '>
-                    Welcome aboard, {username}! We look forward to watching your
-                    fashion journey unfold on our platform. Best Regards,
-                    Srikanth Rajjoshi Onboarding Manager LynkTown
-                  </Text>
-                  <Text className='text-base '>
-                    Best Regards, <br /> Srikanth Rajjoshi <br /> Onboarding
-                    Manager <br /> LynkTown
+                    Best regards, <br /> <br /> Team LynkTown <br />
+                    <Link href='https://www.lynktown.com'>
+                      www.lynktown.com
+                    </Link>
                   </Text>
                 </Container>
               </Container>
             </Section>
-            <Section className='bg-white h-[550px]'></Section>
+            <Section className='bg-white h-[850px]'></Section>
             <Footer />
           </Container>
         </Body>
@@ -136,4 +181,4 @@ export const ProfileVerified = ({
   );
 };
 
-export default ProfileVerified;
+export default CustomerSubscription;
