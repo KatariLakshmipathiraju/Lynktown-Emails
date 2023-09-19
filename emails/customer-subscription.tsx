@@ -115,7 +115,10 @@ export const CustomerSubscription = ({
         <Body className=' my-auto mx-auto font-sans'>
           <Container className='my-8 mx-auto  w-[648px]'>
             <Section className='bg-[#f3f1ee] h-[320px] flex py-8 justify-center'>
-              <Img width={145} src={`${baseUrl}/static/lynktownlogo.png`} />
+              <Img
+                width={145}
+                src={`https://i.ibb.co/zfhMv0C/lynktownlogo.png`}
+              />
               <Container
                 style={{
                   boxShadow: `0px 20px 25px -5px #0000001A`,
@@ -123,20 +126,10 @@ export const CustomerSubscription = ({
                 className='absolute max-w-[540px] bg-white rounded--md  top-[15%] left-[50%] translate-x-[-50%]'
               >
                 <Container className='h-[197px] bg-primary text-center rounded-t-md flex items-center justify-center flex-col'>
-                  <svg
-                    width='50'
-                    height='50'
-                    viewBox='0 0 60 60'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <rect width='60' height='60' rx='30' fill='#3AC267' />
-                    <path
-                      d='M13.5 30L24 40.5L45.75 18.75'
-                      stroke='white'
-                      strokeWidth='5'
-                    />
-                  </svg>
+                  <Img
+                    src='https://i.ibb.co/qNsj6SX/svgviewer-png-output-24.png'
+                    className='flex items-center justify-center mx-auto'
+                  />
                   <Heading
                     as='h1'
                     style={{

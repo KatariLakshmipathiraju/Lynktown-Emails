@@ -41,7 +41,7 @@ interface IFooterProps {}
 const Footer: FC<IFooterProps> = props => {
   return (
     <Container className='px-4 mx-auto  bg-[#f9f9f7] py-10 w-[648px]'>
-      <Img src={`${baseUrl}/static/lynktownlogosm.png`} />
+      <Img src={`https://i.ibb.co/DkVb5XC/lynktownlogosm.png`} />
       <Row className='max-w-sm my-4 flex items-start mx-0 space-x-4'>
         {socialLinks.map(item => {
           return (
