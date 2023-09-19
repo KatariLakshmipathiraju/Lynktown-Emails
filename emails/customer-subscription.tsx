@@ -137,7 +137,7 @@ export const CustomerSubscription = ({
                     }}
                     className='text-white m-0 mt-1 text-4xl font-semibold'
                   >
-                    You have successfully <br /> subcribed to LynkTown
+                    You have successfully <br /> subscribed to LynkTown
                   </Heading>
                 </Container>
                 <Container className='py-5 px-4 rounded-b-md font-sans text-textPrimary '>
