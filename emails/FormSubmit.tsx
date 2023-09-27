@@ -1,9 +1,11 @@
 import {
   Body,
+  Column,
   Container,
   Font,
   Head,
   Heading,
+  Hr,
   Html,
   Img,
   Preview,
@@ -18,6 +20,8 @@ import HeadingComponent from './components/HeadingComponent';
 
 interface ProfileVerifiedProps {
   username?: string;
+  submitFrom?: string;
+  formInfo: any;
 }
 
 const baseUrl = process.env.VERCEL_URL
@@ -25,7 +29,18 @@ const baseUrl = process.env.VERCEL_URL
   : '';
 
 export const ProfileVerified = ({
-  username = `[Designer's Name]`,
+  submitFrom = '',
+  formInfo = [
+    {
+      title: 'name',
+      value: 'test',
+    },
+    {
+      title: 'email',
+
+      value: 'test@gmail.com',
+    },
+  ],
 }: ProfileVerifiedProps) => {
   return (
     <Html>
@@ -82,30 +97,28 @@ export const ProfileVerified = ({
                 }}
                 className=' max-w-[500px] mx-auto mt-5  bg-white rounded--md  '
               >
-                <HeadingComponent icon={true} heading=' Profile verified' />
+                <HeadingComponent
+                  icon={true}
+                  heading={`New Form Submission from ${submitFrom}`}
+                />
 
-                <Container className='py-5 px-4 bg-white rounded-b-md font-sans text-textPrimary font-medium  text-lg'>
-                  <Text className='text-lg font-bold'>Dear {username},</Text>
-                  <Text className='text-base  '>
-                    We are thrilled to welcome you to our vibrant social
-                    commerce platform for fashion enthusiasts! Your creative
-                    talents are an exciting addition to our community, and we
-                    can't wait to see your designs shine.
-                  </Text>
-                  <Text className='text-base '>
-                    We believe that your unique perspective as a fashion
-                    designer will inspire and captivate our audience. Thank you
-                    for choosing us as your platform to share your creativity.
-                  </Text>
-                  <Text className='text-base '>
-                    Welcome aboard, {username}! We look forward to watching your
-                    fashion journey unfold on our platform. Best Regards,
-                    Srikanth Rajjoshi Onboarding Manager LynkTown
-                  </Text>
-                  <Text className='text-base '>
-                    Best Regards, <br /> Srikanth Rajjoshi <br /> Onboarding
-                    Manager <br /> LynkTown
-                  </Text>
+                <Container className='py-5 px-4 bg-white rounded-b-md font-sans text-textPrimary font-medium  text-lg border-2 border-red-500'>
+                  <Section>
+                    {formInfo.map(item => {
+                      return (
+                        <Row className='flex max-w-xs w-full '>
+                          <Column className='w-full capitalize text-left'>
+                            {item.title}
+                          </Column>
+                          <Column className='w-full text-left'>
+                            {item.value}
+                          </Column>
+                          <Hr></Hr>
+                        </Row>
+                      );
+                    })}
+                    <Hr></Hr>
+                  </Section>
                 </Container>
               </Container>
             </Section>

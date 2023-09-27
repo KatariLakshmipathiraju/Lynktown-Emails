@@ -15,8 +15,9 @@ import {
 } from '@react-email/components';
 import * as React from 'react';
 import Footer from './components/Footer';
+import HeadingComponent from './components/HeadingComponent';
 
-interface SellerSubscriptionProps {
+interface ThanksForContactingProps {
   username?: string;
 }
 
@@ -51,13 +52,16 @@ We understand that you have questions and may be seeking information regarding o
   },
 ];
 
-export const SellerSubscription = ({
+export const ThanksForContacting = ({
   username = `[User Name]`,
-}: SellerSubscriptionProps) => {
+}: ThanksForContactingProps) => {
   return (
     <Html>
       <Head />
-      <Preview>Thank you for contacting</Preview>
+      <Preview>
+        Thank you for reaching out to us at LynkTown. We appreciate your
+        interest in our social commerce platform and are thrilled to assist you
+      </Preview>
       <Font
         fontFamily='DM Serif Display'
         fallbackFontFamily='Verdana'
@@ -96,39 +100,33 @@ export const SellerSubscription = ({
         }}
       >
         <Body className=' my-auto mx-auto font-sans'>
-          <Container className='my-8 mx-auto  w-[648px]'>
-            <Section className='bg-[#f3f1ee] h-[320px] flex py-8 justify-center'>
+          <Container className='my-8 mx-auto  max-w-xl  w-full '>
+            <Section className='bg-[#f3f1ee]  py-8 '>
               <Img
                 width={145}
                 src={`https://i.ibb.co/zfhMv0C/lynktownlogo.png`}
+                className='mx-auto'
               />
               <Container
                 style={{
                   boxShadow: `0px 20px 25px -5px #0000001A`,
                 }}
-                className='absolute max-w-[540px] bg-white rounded--md  top-[15%] left-[50%] translate-x-[-50%]'
+                className=' max-w-[500px] mt-5 bg-white rounded--md  '
               >
-                <Container className='h-[197px]  bg-primary text-center rounded-t-md flex items-center justify-center flex-col'>
-                  <Img
-                    src='https://i.ibb.co/qNsj6SX/svgviewer-png-output-24.png'
-                    className='flex items-center justify-center mx-auto'
-                  />
+                <HeadingComponent
+                  icon={true}
+                  heading='Thank you for contacting'
+                />
 
-                  <Heading
-                    as='h1'
-                    style={{
-                      fontFamily: 'DM Serif Display',
-                    }}
-                    className='text-white m-0 mt-1 text-4xl font-semibold'
-                  >
-                    Thank you for contacting
-                  </Heading>
-                </Container>
                 <Container className='py-5 px-4 rounded-b-md font-sans text-textPrimary '>
                   <Text className='text-lg font-bold'>Dear {username},</Text>
                   {content.map(item => {
                     const { id, text } = item;
-                    return <Text className='text-base  '>{text}</Text>;
+                    return (
+                      <Text className='text-base' key={id}>
+                        {text}
+                      </Text>
+                    );
                   })}
 
                   <Text className='text-base '>
@@ -140,7 +138,6 @@ export const SellerSubscription = ({
                 </Container>
               </Container>
             </Section>
-            <Section className='bg-white h-[480px]'></Section>
             <Footer />
           </Container>
         </Body>
@@ -149,4 +146,4 @@ export const SellerSubscription = ({
   );
 };
 
-export default SellerSubscription;
+export default ThanksForContacting;
